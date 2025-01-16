@@ -1,3 +1,4 @@
+// HERO SECTION START
 .hero_section {
   background-color: #f0f0f2;
   .container {
@@ -49,9 +50,8 @@
         h1 {
           font-size: 50px;
         }
- 
       }
-      img{
+      img {
         max-height: 50vh;
       }
     }
@@ -61,7 +61,6 @@
   .hero_section {
     padding: 20px 0;
     .container {
-
       flex-direction: column;
 
       .hero_section_ls {
@@ -72,12 +71,82 @@
           font-size: 30px;
         }
       }
-      img{
+      img {
         display: none;
       }
-      }
+    }
   }
 }
+
+// HERO SECTION END
+
+// NEW ARRIVALS START
+
+.new_arrivals {
+  max-width: 1100px;
+  margin: 100px auto;
+  text-align: center;
+  h1 {
+    font-size: 48px;
+    margin-bottom: 8px;
+  }
+  .new_arrivals_boxes_container {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 50px 30px;
+    margin: 50px 0;
+
+    .new_arrivals_box {
+      position: relative;
+      text-align: center;
+      color: #444444;
+      img {
+        max-width: 100%;
+      }
+      .new_arrivals_box_name {
+        padding: 20px 0;
+      }
+      .new_arrivals_box_price {
+        color: #ff2022;
+      }
+      .heart_icon {
+        position: absolute;
+        top: 10px;
+        right: 10px;
+        svg {
+          font-size: 30px;
+          color: #ff2022;
+          cursor: pointer;
+        }
+      }
+    }
+  }
+}
+@media only screen and (max-width: 1024px) {
+  .new_arrivals {
+    max-width: 768px;
+    .h1 {
+      font-size: 28px;
+      margin-bottom: 8px;
+    }
+
+    .new_arrivals_boxes_container {
+      grid-template-columns: repeat(2, 1fr);
+    }
+  }
+}
+@media only screen and (max-width: 768px) {
+  .new_arrivals {
+    max-width: 320px;
+    .new_arrivals_boxes_container {
+      grid-template-columns: repeat(1, 1fr);
+    }
+  }
+}
+
+// NEW ARRIVALS END
+
+// PRODUCTS SECTION START
 .products_section {
   max-width: 1100px;
   margin: 50px auto;
@@ -108,6 +177,11 @@
       }
       .product_name {
         padding: 20px 0;
+        color: #000;
+        transition-duration: 300ms;
+      }
+      .product_name:hover {
+        text-decoration: underline;
       }
       .heart_icon {
         position: absolute;
@@ -120,6 +194,15 @@
         }
       }
     }
+  }
+  .view_more_products {
+    background-color: #ff2020;
+    color: #fff;
+    padding: 20px 28px;
+    border: none;
+    font-weight: 600;
+    letter-spacing: 0.03em;
+    margin: 50px 0;
   }
 }
 @media only screen and (max-width: 1024px) {
@@ -150,66 +233,65 @@
   }
 }
 
+// PRODUCTS SECTION END
 
+// WATCH OF CHOICE SECTION START
 
-.nev_arrivals{
-  max-width: 1100px;
-  margin: 100px auto;
-  text-align: center;
-h1{
-  font-size: 48px;
-  margin-bottom: 8px;
-}
-  .nev_arrivals_boxes_container {
+.watch_of_choice_section {
+  padding: 50px 0;
+  display: flex;
+  flex-direction: column;
+  gap: 50px;
+  .watch_of_choice_box {
     display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 50px 30px;
-    margin: 50px 0;
+    grid-template-columns: 1fr 1fr;
+    max-width: 1100px;
+    padding: 0 10px;
+    margin: auto;
+    gap: 50px;
+    .watch_of_choice_box_content {
+      display: flex;
+      justify-content: center;
+      flex-direction: column;
+      h2 {
+        font-size: 56px;
+        margin-bottom: 40px;
+      }
+      p {
+        margin-bottom: 50px;
+        font-family: "Roboto", serif;
+        font-size: 17px;
+        line-height: 30px;
+        color: #777;
+      }
+      button {
+        max-width: max-content;
+        background-color: #ff2020;
+        color: #fff;
+        padding: 20px 28px;
+        border: none;
+        font-weight: 600;
+        letter-spacing: 0.03em;
+      }
+    }
+    img {
+      max-width: 100%;
+    }
+  }
+}
+@media only screen and (max-width: 850px) {
+  .watch_of_choice_section {
+    .watch_of_choice_box {
+      grid-template-columns: 1fr;
+      max-width: 600px;
 
-    .nev_arrivals_box {
-      position: relative;
-      text-align: center;
-      color: #444444;
-      img {
-        max-width: 100%;
-      }
-      .nev_arrivals_box_name {
-        padding: 20px 0;
-      }
-      .nev_arrivals_box_price{
-        color: #ff2022;
-      }
-      .heart_icon {
-        position: absolute;
-        top: 10px;
-        right: 10px;
-        svg {
-          font-size: 30px;
-          color: #ff2022;
-          cursor: pointer;
+      .watch_of_choice_box_content {
+        h2 {
+          font-size: 36px;
         }
       }
     }
   }
 }
-@media only screen and (max-width: 1024px) {
-  .nev_arrivals{
-    max-width: 768px;
-    .h1 {
-      font-size: 28px;
-      margin-bottom: 8px;
-    }
-   
-    .nev_arrivals_boxes_container {
-      grid-template-columns: repeat(2, 1fr);
-    }
-  }
-}
-@media only screen and (max-width: 768px) {
-  .nev_arrivals {
-    max-width: 320px;
-    .nev_arrivals_boxes_container {
-      grid-template-columns: repeat(1, 1fr);
-    }
-  }
-}
+
+// WATCH OF CHOICE SECTION END

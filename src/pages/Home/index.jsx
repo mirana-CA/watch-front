@@ -1,12 +1,11 @@
-import React, { useEffect, useState } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import "./index.scss";
 import { Helmet } from "react-helmet";
 import { CiHeart } from "react-icons/ci";
 import { FaHeart } from "react-icons/fa";
 
-import { useDispatch, useSelector } from "react-redux";
-import { addWishlist } from "../../features/addwishlist/wishlistSlice";
 import { Link } from "react-router-dom";
+import WishlistContext from "../../features/wishlistContext";
 
 const Home = () => {
   const [products, setProducts] = useState([]);
@@ -15,14 +14,15 @@ const Home = () => {
       .then((res) => res.json())
       .then((data) => setProducts(data));
   }, []);
-  const liked = useSelector((state) => state.liked);
-  console.log(liked);
-  const dispatch = useDispatch();
+  const { wishlist, likeProduct } = useContext(WishlistContext);
+
   return (
     <>
       <Helmet>
         <title>Watch Shop</title>
       </Helmet>
+      {/* HERO SECTION START */}
+
       <section className="hero_section">
         <div className="container">
           <div className="hero_section_ls">
@@ -39,37 +39,43 @@ const Home = () => {
           />
         </div>
       </section>
-      <section className="nev_arrivals">
- 
-          <h1>New Arrivals</h1>
-          <div className="nev_arrivals_boxes_container">
-            <div className="nev_arrivals_box">
-              <img src="https://preview.colorlib.com/theme/timezone/assets/img/gallery/new_product1.png" alt="new_product" />
-              <h2 className="nev_arrivals_box_name">
-              Thermo Ball Etip Gloves
 
-              </h2>
-              <p className="nev_arrivals_box_price">$ 45,743</p>
-            </div>
-            <div className="nev_arrivals_box">
-              <img src="https://preview.colorlib.com/theme/timezone/assets/img/gallery/new_product2.png" alt="new_product" />
-              <h2 className="nev_arrivals_box_name">
-              Thermo Ball Etip Gloves
+      {/* HERO SECTION END */}
 
-              </h2>
-              <p className="nev_arrivals_box_price">$ 45,743</p>
-            </div>
-            <div className="nev_arrivals_box">
-              <img src="https://preview.colorlib.com/theme/timezone/assets/img/gallery/new_product3.png" alt="new_product" />
-              <h2 className="nev_arrivals_box_name">
-              Thermo Ball Etip Gloves
+      {/* NEW ARRIVALS START */}
 
-              </h2>
-              <p className="nev_arrivals_box_price">$ 45,743</p>
-            </div>
+      <section className="new_arrivals">
+        <h1>New Arrivals</h1>
+        <div className="new_arrivals_boxes_container">
+          <div className="new_arrivals_box">
+            <img
+              src="https://preview.colorlib.com/theme/timezone/assets/img/gallery/new_product1.png"
+              alt="new_product"
+            />
+            <h2 className="new_arrivals_box_name">Thermo Ball Etip Gloves</h2>
+            <p className="new_arrivals_box_price">$ 45,743</p>
           </div>
- 
+          <div className="new_arrivals_box">
+            <img
+              src="https://preview.colorlib.com/theme/timezone/assets/img/gallery/new_product2.png"
+              alt="new_product"
+            />
+            <h2 className="new_arrivals_box_name">Thermo Ball Etip Gloves</h2>
+            <p className="new_arrivals_box_price">$ 45,743</p>
+          </div>
+          <div className="new_arrivals_box">
+            <img
+              src="https://preview.colorlib.com/theme/timezone/assets/img/gallery/new_product3.png"
+              alt="new_product"
+            />
+            <h2 className="new_arrivals_box_name">Thermo Ball Etip Gloves</h2>
+            <p className="new_arrivals_box_price">$ 45,743</p>
+          </div>
+        </div>
       </section>
+      {/* NEW ARRIVALS END */}
+      {/* PRODUCTS SECTION START */}
+
       <section className="products_section">
         <h2 className="products_heading">Popular Items</h2>
         <p className="products_desc">
@@ -80,25 +86,65 @@ const Home = () => {
         <div className="products_container">
           {products.map((item) => {
             return (
-              <Link to={`/details/${item._id}`} key={item._id}>  <div className="product"  >
-              <img src={item.image} alt={item.name} />
-              <h2 className="product_name">{item.name}</h2>
-              <div className="price">
-                <span>$</span> {item.price}
+              <div className="product" key={item._id}>
+                <img src={item.image} alt={item.name} />
+                <Link to={`/details/${item._id}`}>
+                  <h2 className="product_name">{item.name}</h2>{" "}
+                </Link>
+                <div className="price">
+                  <span>$</span> {item.price}
+                </div>
+                <div className="heart_icon" onClick={() => likeProduct(item)}>
+                  {wishlist.find((e) => e._id == item._id) ? (
+                    <FaHeart />
+                  ) : (
+                    <CiHeart />
+                  )}
+                </div>
               </div>
-              <div className="heart_icon">
-                {item.liked ? (
-                  <FaHeart onClick={() => dispatch(addWishlist(item))} />
-                ) : (
-                  <CiHeart onClick={() => dispatch(addWishlist(item))} />
-                )}
-              </div>
-            </div></Link>
-            
             );
           })}
         </div>
+        <button className="view_more_products">VIEW MORE PRODUCTS</button>
       </section>
+      {/* PRODUCTS SECTION END */}
+
+      {/* WATCH OF CHOICE SECTION START */}
+
+      <section className="watch_of_choice_section">
+        <div className="watch_of_choice_box">
+          <div className="watch_of_choice_box_content">
+            <h2>Watch of Choice</h2>
+            <p>
+              Enim ad minim veniam, quis nostrud exercitation ullamco laboris
+              nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in
+              reprehenderit in voluptate velit esse.
+            </p>
+            <button>SHOW WATCHES</button>
+          </div>
+          <img
+            src="https://preview.colorlib.com/theme/timezone/assets/img/gallery/choce_watch1.png"
+            alt="watch"
+          />
+        </div>
+        <div className="watch_of_choice_box">
+          <img
+            src="https://preview.colorlib.com/theme/timezone/assets/img/gallery/choce_watch2.png"
+            alt=""
+          />
+
+          <div className="watch_of_choice_box_content">
+            <h2>Watch of Choice</h2>
+            <p>
+              Enim ad minim veniam, quis nostrud exercitation ullamco laboris
+              nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in
+              reprehenderit in voluptate velit esse.
+            </p>
+            <button>SHOW WATCHES</button>
+          </div>
+        </div>
+      </section>
+      {/* WATCH OF CHOICE SECTION END */}
     </>
   );
 };

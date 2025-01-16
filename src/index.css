@@ -1,14 +1,24 @@
-*{
+* {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
   font-family: "Josefin Sans", serif;
   /* font-family: "Roboto", serif; */
 }
-ul,ol,li,a{
+ul,
+ol,
+li,
+a {
   text-decoration: none;
   list-style: none;
 }
-button{
+button {
   cursor: pointer;
+}
+.loading {
+  width: 100%;
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }

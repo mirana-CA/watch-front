@@ -1,0 +1,57 @@
+.admin {
+  max-width: 1200px;
+  margin: 50px auto;
+  .link_to_add {
+    background-color: lightblue;
+    color: #fff;
+    padding: 20px 30px;
+    max-width: max-content;
+    border: none;
+    display: flex;
+    align-items: center;
+    float: right;
+    gap: 10px;
+    font-weight: 600;
+    margin-bottom: 50px;
+    svg {
+      font-size: 30px;
+      font-weight: 600;
+    }
+  }
+  table {
+    margin: 50px 0;
+    width: 100%;
+    border: 1px solid black;
+    border-collapse: collapse;
+    thead tr th {
+      background-color: rgba(173, 216, 230, 0.234);
+      border: 1px solid black;
+      padding: 10px 20px;
+    }
+    tbody tr {
+      td {
+        border: 1px solid black;
+        padding: 5px 20px;
+        text-align: center;
+        img {
+          max-width: 100px;
+        }
+        .admin_item_name {
+          color: #000;
+          transition-duration: 300ms;
+        }
+        .admin_item_name:hover {
+          text-decoration: underline;
+        }
+      }
+      .delete_btn svg {
+        color: red;
+        cursor: pointer;
+      }
+      .update_btn svg {
+        color: lightblue;
+        cursor: pointer;
+      }
+    }
+  }
+}
