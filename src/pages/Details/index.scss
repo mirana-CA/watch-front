@@ -1,0 +1,13 @@
+.detail_page{
+    width: 100%;
+    display: grid;
+    place-items: center;
+    margin: 50px auto;
+
+    .product{
+        display: flex;
+        flex-direction: column;
+        gap: 20px;
+
+    }
+}

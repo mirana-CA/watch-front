@@ -1,0 +1,215 @@
+.hero_section {
+  background-color: #f0f0f2;
+  .container {
+    max-width: 1200px;
+    padding: 0 10px;
+    margin: 0 auto;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 30px;
+
+    .hero_section_ls {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      h1 {
+        color: #0b1c39;
+        font-size: 96px;
+        line-height: 1.2;
+        margin-bottom: 30px;
+      }
+      p {
+        color: #212025;
+        line-height: 1.6;
+        font-weight: 400;
+        margin-bottom: 60px;
+        font-family: "Roboto", serif;
+        max-width: 80%;
+        font-size: 17px;
+      }
+      button {
+        background-color: #4a4a4b;
+        color: #fff;
+        padding: 20px 30px;
+        max-width: max-content;
+        border: none;
+      }
+    }
+    img {
+      max-height: 100vh;
+    }
+  }
+}
+@media only screen and (max-width: 1024px) {
+  .hero_section {
+    .container {
+      gap: 0px;
+      .hero_section_ls {
+        h1 {
+          font-size: 50px;
+        }
+ 
+      }
+      img{
+        max-height: 50vh;
+      }
+    }
+  }
+}
+@media only screen and (max-width: 600px) {
+  .hero_section {
+    padding: 20px 0;
+    .container {
+
+      flex-direction: column;
+
+      .hero_section_ls {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        h1 {
+          font-size: 30px;
+        }
+      }
+      img{
+        display: none;
+      }
+      }
+  }
+}
+.products_section {
+  max-width: 1100px;
+  margin: 50px auto;
+  text-align: center;
+  .products_heading {
+    font-size: 48px;
+    margin-bottom: 8px;
+  }
+  .products_desc {
+    color: #777;
+    max-width: 50%;
+    margin: 0 auto;
+    margin-bottom: 15px;
+    line-height: 30px;
+  }
+  .products_container {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 50px 30px;
+    margin: 50px 0;
+
+    .product {
+      position: relative;
+      text-align: center;
+      color: #444444;
+      img {
+        max-width: 100%;
+      }
+      .product_name {
+        padding: 20px 0;
+      }
+      .heart_icon {
+        position: absolute;
+        top: 10px;
+        right: 10px;
+        svg {
+          font-size: 30px;
+          color: #ff2022;
+          cursor: pointer;
+        }
+      }
+    }
+  }
+}
+@media only screen and (max-width: 1024px) {
+  .products_section {
+    max-width: 768px;
+    .products_heading {
+      font-size: 28px;
+      margin-bottom: 8px;
+    }
+    .products_desc {
+      color: #777;
+      max-width: 100%;
+      margin: 0 auto;
+      margin-bottom: 15px;
+      line-height: 20px;
+    }
+    .products_container {
+      grid-template-columns: repeat(2, 1fr);
+    }
+  }
+}
+@media only screen and (max-width: 768px) {
+  .products_section {
+    max-width: 320px;
+    .products_container {
+      grid-template-columns: repeat(1, 1fr);
+    }
+  }
+}
+
+
+
+.nev_arrivals{
+  max-width: 1100px;
+  margin: 100px auto;
+  text-align: center;
+h1{
+  font-size: 48px;
+  margin-bottom: 8px;
+}
+  .nev_arrivals_boxes_container {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 50px 30px;
+    margin: 50px 0;
+
+    .nev_arrivals_box {
+      position: relative;
+      text-align: center;
+      color: #444444;
+      img {
+        max-width: 100%;
+      }
+      .nev_arrivals_box_name {
+        padding: 20px 0;
+      }
+      .nev_arrivals_box_price{
+        color: #ff2022;
+      }
+      .heart_icon {
+        position: absolute;
+        top: 10px;
+        right: 10px;
+        svg {
+          font-size: 30px;
+          color: #ff2022;
+          cursor: pointer;
+        }
+      }
+    }
+  }
+}
+@media only screen and (max-width: 1024px) {
+  .nev_arrivals{
+    max-width: 768px;
+    .h1 {
+      font-size: 28px;
+      margin-bottom: 8px;
+    }
+   
+    .nev_arrivals_boxes_container {
+      grid-template-columns: repeat(2, 1fr);
+    }
+  }
+}
+@media only screen and (max-width: 768px) {
+  .nev_arrivals {
+    max-width: 320px;
+    .nev_arrivals_boxes_container {
+      grid-template-columns: repeat(1, 1fr);
+    }
+  }
+}
